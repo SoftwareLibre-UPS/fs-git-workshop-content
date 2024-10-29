@@ -33,9 +33,12 @@ Visita el sitio oficial de Git [git-scm.com](https://git-scm.com) para más deta
 
 [Comandos Básicos de Git](./01_comandos_basicos.md)
 - [Configuración: `$git config`](./01_comandos_basicos.md#1-configuración-git-config)
-- [Inicialización: `$git init`](./01_comandos_basicos.md#2-inicialización-git-init)
-- [Cambios y guardar versiones: `$git add` y `$git commit`](./01_comandos_basicos.md#3-cambios-y-guardar-versiones-git-add-y-git-commit)
+- [Inicialización: `$git init`](./01_comandos_basicos.md#2-inicialización-de-un-repositorio-git-init)
+- [Cambios y guardar versiones: `$git add` y `$git commit`](./01_comandos_basicos.md#3-añadir-cambios-y-guardar-versiones-git-add-y-git-commit)
 
+[Manejo de Ramas en Git](./02_branchs.md)
+- [Creación de Ramas](./02_branchs.md#1-creación-de-ramas)
+- [Cambio entre Ramas](./02_branchs.md#2-cambio-entre-ramas)
+- [Fusión de Ramas](./02_branchs.md#3-fusión-de-ramas)
+- [Eliminación de Ramas](./02_branchs.md#4-eliminación-de-ramas)
 
-
-### Porbar cambio a dev
