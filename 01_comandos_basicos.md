@@ -61,6 +61,8 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
    git config unset --global rerere.enabled               # Nueva forma
    ```
 
+   **Nota**: el archivo rerere (**re**use **re**corded **re**solution) facilitar la gestión de conflictos en fusiones (merges) al recordar cómo resolviste un conflicto específico y aplicar automáticamente esa resolución si el mismo conflicto ocurre nuevamente en el futuro
+
    **Ejemplo**:
    ```bash
    git config --local --unset rerere.enabled
