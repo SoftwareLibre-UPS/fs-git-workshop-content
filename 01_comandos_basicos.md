@@ -209,7 +209,7 @@ Revisar el historial de commits es útil para conocer los cambios realizados y q
 Estos comandos muestran los commits realizados, la fecha y hora, y el nombre de quien realizó los cambios.
 
 > **Conceptos Importantes**:
-> - **HEAD**: Refleja el commit en el que estás actualmente.
+> - **HEAD**: Refleja el commit más reciente en la rama actual, por lo general es en el que estás actualmente.
 > - **HASH del Commit**: Es el identificador único de cada commit.
 > - **git blame**: Muestra el historial de cambios por línea, permitiendo ver quién hizo cada cambio.
 
@@ -262,17 +262,17 @@ Para esta práctica, trabajaremos con archivos Markdown para mayor simplicidad, 
 
 1. **Crear un archivo** `archivo_1.md` y agregar texto usando cualquier editor.
 2. **Ver el estado del repositorio**:
-   
+
    ```bash
    git status
    ```
-   
+
    Verás que el archivo aparece como "no rastreado" (untracked), lo que significa que aún no forma parte del repositorio.
 
 3. **Agregar el archivo al área de preparación (staging area)**:
 
    - Para agregar un archivo específico:
-     
+
      ```bash
      git add archivo_1.md
      ```
@@ -290,7 +290,7 @@ Para esta práctica, trabajaremos con archivos Markdown para mayor simplicidad, 
      git add carpeta/*.txt        # Agrega todos los archivos .txt dentro de la carpeta "carpeta"
      ```
 
-      
+
 
 
 #### Primer Commit
