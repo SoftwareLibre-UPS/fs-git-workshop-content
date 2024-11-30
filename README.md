@@ -27,6 +27,25 @@ El término "Git" no tiene un significado específico como acrónimo. En la jerg
 
 Visita el sitio oficial de Git [git-scm.com](https://git-scm.com) para más detalles y documentación.
 
+## Conceptos de git
+
+- **working tree o directorio base**: Se refiere al directorio sobre el cual se trabaja con git, abarca desde la carpeta raíz con la carpeta .git, con todos sus archivos y subdirectorio
+
+- **repositorio o repo**: Es un proyecto cualquiera que utilice git
+
+- **rama**: Estados diferentes de un mismo repositorio o proyecto
+
+- **commit**: Se puede entender como un guardado del estado del proyecto en ese momento, es un punto en la historia del proyecto
+
+- **index o staging area**: Es el lugar donde se agregan los cambios que se quieren guardar en el siguiente commit
+
+- **untracked files**: Son los archivos o cambios que git no sigue o de los que no guarda información, estos no estan agregados al index **RECUERDA**: los archivos o cambios que no sigue git no los puedes recuperar si es que los eliminas
+
+- **indexed o staged files**: Archivos o cambios agregados al índice y están listos para hacer un commit, por si ya han utilizado git estos son los archivos o cambios que se agregan cuando se ejecuta el comando `git add`
+
+- **tracked files**: Archivos de los que git ya tiene información, estos archivos tiene commits anteriores y pueden presentar nuevos cambios agregados al index
+
+- **remoto**: Repositorios que están en otro directorio o en otra computadora, github es el mas claro ejemplo de un repositorio remoto, pero tambien se puede tener un repositorio remoto de forma local, solo es un proyecto que esta en un lugar diferente en relación con el repo actual
 
 ## Temas
 [Instalacións de Git](./00_instalacion.md)
