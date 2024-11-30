@@ -42,3 +42,14 @@ Visita el sitio oficial de Git [git-scm.com](https://git-scm.com) para más deta
 - [Fusión de Ramas](./02_branchs.md#3-fusión-de-ramas)
 - [Eliminación de Ramas](./02_branchs.md#4-eliminación-de-ramas)
 
+
+
+[Manejo del Historial y Cambios en Git](./03_historial-y-cambios.md)
+- [Rebase (Reorganizar el historial)](./03_historial-y-cambios.md#1-rebase-reorganizar-el-historial)
+- [Stash (Guardar cambios temporales)](./03_historial-y-cambios.md#2-stash-guardar-cambios-temporales)
+- [Reverse (Revertir cambios)](./03_historial-y-cambios.md#3-reverse-revertir-cambios)
+- [Reset (Restablecer cambios)](./03_historial-y-cambios.md#4-reset-restablecer-cambios)
+
+[Repositorios Remotos y Resolución de Conflictos](./04_remote-y-conflictos.md)
+- [Trabajando con Repositorios Remotos](./04_remote-y-conflictos.md#1-trabajando-con-repositorios-remotos)
+- [Resolución de Conflictos](./04_remote-y-conflictos.md#2-resolución-de-conflictos)
