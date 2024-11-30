@@ -53,3 +53,7 @@ Visita el sitio oficial de Git [git-scm.com](https://git-scm.com) para más deta
 [Repositorios Remotos y Resolución de Conflictos](./04_remote-y-conflictos.md)
 - [Trabajando con Repositorios Remotos](./04_remote-y-conflictos.md#1-trabajando-con-repositorios-remotos)
 - [Resolución de Conflictos](./04_remote-y-conflictos.md#2-resolución-de-conflictos)
+
+### Colaboradores
+
+- [Diego Tapia](https://github.com/juandtap/)
