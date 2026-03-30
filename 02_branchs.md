@@ -28,6 +28,10 @@ En Git, las ramas permiten desarrollar características, realizar pruebas o trab
    ```bash
    git checkout -b <nombre-de-la-rama>
    ```
+   ó
+   ```bash
+   git switch -c <nombre-de-la-rama>
+   ```
 
    - **`-b`**: Crea y cambia a la nueva rama.
 
@@ -36,7 +40,16 @@ En Git, las ramas permiten desarrollar características, realizar pruebas o trab
 1. Crea una nueva rama llamada `archivo_2.md` y cámbiala de inmediato:
 
    ```bash
+   git branch dev
+   git switch dev
+   ```
+   ó
+   ```bash
    git checkout -b dev
+   ```
+   ó
+   ```bash
+   git switch -c dev
    ```
 
 2. En esta nueva rama, crea un archivo `login.md` y agrega texto de ejemplo:
@@ -67,6 +80,10 @@ El cambio entre ramas en Git permite moverse de una línea de desarrollo a otra.
    ```bash
    git checkout <nombre-de-la-rama>
    ```
+   ó
+   ```bash
+   git switch <nombre-de-la-rama>
+   ```
 
 ### 2.3 Ejercicio Práctico
 
@@ -79,14 +96,22 @@ El cambio entre ramas en Git permite moverse de una línea de desarrollo a otra.
    ```bash
    git checkout main
    ```
+   ó
+   ```bash
+   git switch main
+   ```
 
 3. Observa el contenido del repositorio y nota que no verás los cambios realizados en `archivo_2.md`. Este archivo no deberia existir.
 
-4. Volvemos ala rama `dev`
+4. Volvemos a la rama `dev`
 
     ```bash
     git checkout dev
     ```
+   ó
+   ```bash
+   git switch dev
+   ```
 
 ---
 
@@ -110,7 +135,7 @@ La fusión (merge) de ramas permite combinar cambios de una rama en otra. Este p
 1. Cambia a la rama `main` y fusiona los cambios de la rama dev `dev`:
 
    ```bash
-   git checkout main
+   git switch main
    git merge dev
    ```
 

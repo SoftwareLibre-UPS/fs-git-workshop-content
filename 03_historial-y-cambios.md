@@ -13,7 +13,7 @@
 ## 1. Rebase (Reorganizar el historial)
 
 ### 1.1 Concepto
-El comando `git rebase` reorganiza el historial de commits moviendo una rama a otra base. Es útil para mantener un historial más limpio y lineal, evitando "commits de merge" en exceso. 
+El comando `git rebase` reorganiza el historial de commits moviendo una rama a otra base. Es útil para mantener un historial más limpio y lineal, evitando "commits de merge" en exceso.
 
 ### 1.2 Comandos más usados
 
@@ -47,7 +47,7 @@ El comando `git rebase` reorganiza el historial de commits moviendo una rama a o
    echo "Primer commit" > rebase1.txt
    git add rebase1.txt
    git commit -m "Add: Primer commit en rebase-demo"
-   
+
    echo "Segundo commit" > rebase2.txt
    git add rebase2.txt
    git commit -m "Add: Segundo commit en rebase-demo"
@@ -75,12 +75,16 @@ El comando `git rebase` reorganiza el historial de commits moviendo una rama a o
    git log --oneline
    ```
 
+
+
+    >**Nota Importante**: Se recomienda no utilizar rebase en ramas que hayan trabajado 2 o más personas, debido a que pueden generar conflictos
+
 ---
 
 ## 2. Stash (Guardar cambios temporales)
 
 ### 2.1 Concepto
-El comando `git stash` guarda los cambios en un área temporal, permitiendo trabajar en otra tarea sin perder el progreso actual.
+El comando `git stash` guarda los cambios recientes de la rama actual en un área temporal, permitiendo trabajar en una rama limpia sin perder el progreso actual.
 
 ### 2.2 Comandos más usados
 
@@ -89,12 +93,26 @@ El comando `git stash` guarda los cambios en un área temporal, permitiendo trab
    ```bash
    git stash
    ```
+   ó
+   ```bash
+   git stash push
+   ```
 
-- **Aplicar el stash más reciente**:
+   Son equivalentes
+
+- **Aplicar el stash más reciente sin borrar del historial**:
 
    ```bash
    git stash apply
    ```
+
+- **Aplicar el stash más reciente borrando automáticamente del historial**:
+
+   ```bash
+   git stash pop
+   ```
+
+   Este comando nos permite recuperar los cambios más recientes guardados en el stash y borrar del historial, pero si existe un conflicto, nos lanza un mensaje de advertencia de los conflictos y se mantiene el historial intacto.
 
 - **Listar los stashes almacenados**:
 
@@ -102,7 +120,7 @@ El comando `git stash` guarda los cambios en un área temporal, permitiendo trab
    git stash list
    ```
 
-- **Eliminar el stash más reciente**:
+- **Eliminar el stash más reciente del historial**:
 
    ```bash
    git stash drop
@@ -129,11 +147,17 @@ El comando `git stash` guarda los cambios en un área temporal, permitiendo trab
    ```bash
    git stash apply
    git commit -m "Add: Cambio temporal recuperado"
+   git stash drop
+   ```
+   ó
+   ```bash
+   git stash pop
+   git commit -m "Add: Cambio temporal recuperado"
    ```
 
 ---
 
-## 3. Reverse (Revertir cambios)
+## 3. Revert (Revertir cambios)
 
 ### 3.1 Concepto
 El comando `git revert` permite deshacer un cambio de un commit específico, creando un nuevo commit que lo anula. Es ideal para revertir cambios en un entorno compartido.
@@ -173,6 +197,9 @@ El comando `git revert` permite deshacer un cambio de un commit específico, cre
    ```bash
    git log --oneline
    ```
+
+
+    >**Nota Importante**: No realizar revert del primer commit de la rama
 
 ---
 
