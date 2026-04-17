@@ -1,5 +1,3 @@
-
-
 # Instalación de Git
 
 Git se puede instalar en diferentes sistemas operativos de forma sencilla. A continuación, te mostramos los pasos para instalar Git en **Windows**, **Linux** y **Mac**.

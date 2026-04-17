@@ -24,9 +24,9 @@ La configuración local puede diferir de la global. A continuación se detalla c
 #### Archivos de Configuración Global
 
 Dependiendo del sistema operativo, el archivo de configuración global se encuentra en distintas ubicaciones:
-- **Linux**: `~/.gitconfig`
+- **Linux**: `~/.gitconfig` o `~/.config/git/config`
 - **Windows**: `C:\Users\<nombre-de-usuario>\.gitconfig`
-- **MacOS**: (Buscar ruta específica)
+- **MacOS**: `~/.gitconfig` o `~/.config/git/config`
 
 ---
 ### Comandos de Configuración
@@ -57,9 +57,11 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
 - **Borrar un valor**:
 
    ```bash
-   git config --global --unset <seccion>.<llave>          # Forma deprecada
+   git config --global --unset <seccion>.<llave>          # Forma obsoleto
    git config unset --global rerere.enabled               # Nueva forma
    ```
+
+   **Nota**: el archivo rerere (**re**use **re**corded **re**solution) facilitar la gestión de conflictos en fusiones (merges) al recordar cómo resolviste un conflicto específico y aplicar automáticamente esa resolución si el mismo conflicto ocurre nuevamente en el futuro
 
    **Ejemplo**:
    ```bash
@@ -70,7 +72,7 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
 - **Agregar valores**:
 
    ```bash
-   git config --global --add <seccion>.<llave> <valor>    # Forma deprecada
+   git config --global --add <seccion>.<llave> <valor>    # Forma obsoleto
    git config set --local <seccion>.<llave> <valor>       # Nueva forma
    ```
 
@@ -99,6 +101,32 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
    - **`--local`**: Aplica los ajustes solo en el repositorio actual.
 
 
+#### Configurar editor por defecto
+
+Vamos a cambiar nuestro editor por defecto para evitar problemas o confusiones mas adelante.
+
+- Configurar para utilizar nano:
+
+    ```bash
+    git config --global core.editor "nano"
+    ```
+
+- Si tienen instalado Visual Studio Code pueden configurar de esta manera:
+
+    ```bash
+    git config --global core.editor "code --wait"
+    ```
+
+
+#### Configurar caracteres especiales en Windows
+
+En Windows se utilizan caracteres especiales para los saltos de linea, para que nuestros archivos no tengan conflictos con estos caracteres configuramos de esta manera:
+
+- Configurar saltos de linea para Windows
+    ```bash
+    git config --global core.autocrfl true
+    ```
+
 
 ### 1.3 Ejercicio Práctico - Configuración de Git (Global)
 
@@ -120,7 +148,7 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
    Comprueba que los valores se hayan configurado correctamente con `git config --global --list`.
 
      ```bash
-   git config --global --list`
+   git config --global --list
    ```
 
 
@@ -174,7 +202,7 @@ El comando `git init` se utiliza para crear un nuevo repositorio de Git en el di
 ## 3. Añadir cambios y guardar versiones: `$git add` y `$git commit`
 
 ### 3.1 Concepto
-El comando `git add` añade archivos al área de preparación (staging area), preparándolos para ser confirmados en el historial del repositorio. El comando `git commit` guarda esos cambios en el repositorio.
+El comando `git add` añade archivos al área de preparación (staging area), preparándolos para ser confirmados en el historial del repositorio. El comando `git commit` guarda esos cambios en el repositorio. El area de preparación contiene todos los archivos listos para realizar un commit, el cual es permanente; es un area intermedia que nos permite decir a git que archivos que han sido modificados queremos que se agreguen al historial de cambios de forma permanente.
 
 #### Visualizar el Historial de Commits
 
@@ -207,7 +235,7 @@ Revisar el historial de commits es útil para conocer los cambios realizados y q
 Estos comandos muestran los commits realizados, la fecha y hora, y el nombre de quien realizó los cambios.
 
 > **Conceptos Importantes**:
-> - **HEAD**: Refleja el commit en el que estás actualmente.
+> - **HEAD**: Refleja el commit más reciente en la rama actual.
 > - **HASH del Commit**: Es el identificador único de cada commit.
 > - **git blame**: Muestra el historial de cambios por línea, permitiendo ver quién hizo cada cambio.
 
@@ -260,17 +288,17 @@ Para esta práctica, trabajaremos con archivos Markdown para mayor simplicidad, 
 
 1. **Crear un archivo** `archivo_1.md` y agregar texto usando cualquier editor.
 2. **Ver el estado del repositorio**:
-   
+
    ```bash
    git status
    ```
-   
+
    Verás que el archivo aparece como "no rastreado" (untracked), lo que significa que aún no forma parte del repositorio.
 
 3. **Agregar el archivo al área de preparación (staging area)**:
 
    - Para agregar un archivo específico:
-     
+
      ```bash
      git add archivo_1.md
      ```
@@ -288,7 +316,7 @@ Para esta práctica, trabajaremos con archivos Markdown para mayor simplicidad, 
      git add carpeta/*.txt        # Agrega todos los archivos .txt dentro de la carpeta "carpeta"
      ```
 
-      
+
 
 
 #### Primer Commit
@@ -318,5 +346,29 @@ El comando `git commit` permite registrar los cambios agregados al área de prep
 
    > **Consejo**: Evita realizar commits por cada pequeño cambio, ya que esto puede llenar el historial de commits y dificultar la revisión de cambios cuando surgen problemas en el proyecto.
 
+   > **Nota**: No en todas las instalaciones de git se reconoce la opción -a
 
 
+#### .gitignore (Ignorar directorios y archivos)
+
+Si deseamos ignorar por defecto archivos o directorios en específico debemos utilizar un archivo .gitignore, este archivo no se crea por defecto, debemos crearlo nosotros.
+En este archivo se colocan todos los directorios y archivos que queramos no tomar en cuenta, de esta manera git los ignorará y no seguirá los cambios realizados.
+
+Un ejemplo de un archivo .gitignore:
+
+```
+credenciales.json
+texturas/
+*.jpg
+ejemplos/*.txt
+```
+
+La linea `credenciales.json` indica a git que se ignore este archivo de forma específica.
+
+La linea `texturas/` es para ignorar el directorio llamado texturas y todo su contenido. Para ignorar un directorio siempre se termina en `/`.
+
+La linea `*.jpg` ignora todos los archivos que tengan extensión jpg, es decir, imágenes con este formato. Esto puede ser ignorado para ignorar archivos que contengan texto similar en sus nombres.
+
+La linea `ejemplos/*.txt` va a ignorar todos los archivos de texto que estén dentro del directorio `ejemplos/`, es decir, los archivos de texto que se encuentren en otros lugares si serán tomados en cuenta por git.
+
+>**Nota**: En internet se pueden encontrar configuraciones básicas de estos archivos según el proyecto y el lenguaje de programación que se esté utilizando
