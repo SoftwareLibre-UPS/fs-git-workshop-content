@@ -77,7 +77,7 @@ El comando `git rebase` reorganiza el historial de commits moviendo una rama a o
 
 
 
-    >**Nota Importante**: Se recomienda no utilizar rebase en ramas que hayan trabajado 2 o más personas, debido a que pueden generar conflictos
+    >**Nota Importante**: Se recomienda utilizar rebase solo en ramas locales y ramas en las que solo hayas trabajado tu, puesto que en proyectos grandes puede generar conflictos con otros colaboradores.
 
 ---
 

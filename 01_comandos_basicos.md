@@ -24,9 +24,9 @@ La configuración local puede diferir de la global. A continuación se detalla c
 #### Archivos de Configuración Global
 
 Dependiendo del sistema operativo, el archivo de configuración global se encuentra en distintas ubicaciones:
-- **Linux**: `~/.gitconfig`
+- **Linux**: `~/.gitconfig` o `~/.config/git/config`
 - **Windows**: `C:\Users\<nombre-de-usuario>\.gitconfig`
-- **MacOS**: (Buscar ruta específica)
+- **MacOS**: `~/.gitconfig` o `~/.config/git/config`
 
 ---
 ### Comandos de Configuración
@@ -235,7 +235,7 @@ Revisar el historial de commits es útil para conocer los cambios realizados y q
 Estos comandos muestran los commits realizados, la fecha y hora, y el nombre de quien realizó los cambios.
 
 > **Conceptos Importantes**:
-> - **HEAD**: Refleja el commit más reciente en la rama actual, por lo general es en el que estás actualmente.
+> - **HEAD**: Refleja el commit más reciente en la rama actual.
 > - **HASH del Commit**: Es el identificador único de cada commit.
 > - **git blame**: Muestra el historial de cambios por línea, permitiendo ver quién hizo cada cambio.
 
