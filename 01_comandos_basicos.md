@@ -73,7 +73,7 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
 
    ```bash
    git config --global --add <seccion>.<llave> <valor>    # Forma obsoleto
-   git config set --local <seccion>.<llave> <valor>       # Nueva forma
+   git config add --local <seccion>.<llave> <valor>       # Nueva forma
    ```
 
 ### 1.2 Comandos más usados
@@ -81,13 +81,13 @@ Dependiendo del sistema operativo, el archivo de configuración global se encuen
 - Configuración del nombre de usuario:
 
    ```bash
-   git config --global user.name "<nombre>"
+   git config add --global user.name "<nombre>"
    ```
 
 - Configuración del correo electrónico del usuario:
 
    ```bash
-   git config --global user.email "<email>"
+   git config add --global user.email "<email>"
    ```
 
 - Verificación de la configuración actual:
@@ -108,13 +108,13 @@ Vamos a cambiar nuestro editor por defecto para evitar problemas o confusiones m
 - Configurar para utilizar nano:
 
     ```bash
-    git config --global core.editor "nano"
+    git config add --global core.editor "nano"
     ```
 
 - Si tienen instalado Visual Studio Code pueden configurar de esta manera:
 
     ```bash
-    git config --global core.editor "code --wait"
+    git config add --global core.editor "code --wait"
     ```
 
 
@@ -124,7 +124,7 @@ En Windows se utilizan caracteres especiales para los saltos de linea, para que 
 
 - Configurar saltos de linea para Windows
     ```bash
-    git config --global core.autocrfl true
+    git config add --global core.autocrfl true
     ```
 
 
